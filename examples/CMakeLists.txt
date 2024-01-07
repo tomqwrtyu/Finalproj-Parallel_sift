@@ -16,7 +16,7 @@ target_link_libraries(match_features PRIVATE
                       sift
 )
 
-add_executable(match_features_omp match_features.cpp)
+add_executable(match_features_omp match_features_omp.cpp)
 
 target_include_directories(match_features_omp PRIVATE ../src)
 

@@ -179,6 +179,7 @@ Image Image::resize(int new_w, int new_h, Interpolation method) const
 {
     Image resized(new_w, new_h, this->channels);
     float value = 0;
+    #pragma omp parallel for schedule(static) collapse(3)
     for (int x = 0; x < new_w; x++) {
         for (int y = 0; y < new_h; y++) {
             for (int c = 0; c < resized.channels; c++) {
@@ -268,7 +269,7 @@ Image gaussian_blur(const Image& img, float sigma)
     Image filtered(img.width, img.height, 1);
 
     // convolve vertical
-    // #pragma omp parallel for schedule(static) collapse(2)
+    #pragma omp parallel for schedule(static) collapse(2)
     for (int x = 0; x < img.width; x++) {   // can be parallelized
         for (int y = 0; y < img.height; y++) {
             float sum = 0;
@@ -280,7 +281,7 @@ Image gaussian_blur(const Image& img, float sigma)
         }
     }
     // convolve horizontal
-    // #pragma omp parallel for schedule(static) collapse(2)
+    #pragma omp parallel for schedule(static) collapse(2)
     for (int x = 0; x < img.width; x++) {
         for (int y = 0; y < img.height; y++) {
             float sum = 0;

@@ -266,7 +266,7 @@ ScaleSpacePyramid generate_gradient_pyramid(const ScaleSpacePyramid& pyramid)
         for (int j = 0; j < pyramid.imgs_per_octave; j++) {
             Image grad(width, height, 2);
             float gx, gy;
-            #pragma omp parallel for schedule(static) private(gx, gy)
+            #pragma omp parallel for schedule(static) private(gx, gy) collapse(2)
             for (int x = 1; x < grad.width-1; x++) {
                 for (int y = 1; y < grad.height-1; y++) {
                     gx = (pyramid.octaves[i][j].get_pixel(x+1, y, 0)
@@ -287,8 +287,8 @@ ScaleSpacePyramid generate_gradient_pyramid(const ScaleSpacePyramid& pyramid)
 void smooth_histogram(float hist[N_BINS])
 {
     float tmp_hist[N_BINS];
-    #pragma omp parallel for schedule(static)
-    for (int i = 0; i < 6; i++) {   // can be parallelized
+    // #pragma omp parallel for schedule(static)
+    for (int i = 0; i < 6; i++) {   // can be parallelized, but maybe low cost?
         for (int j = 0; j < N_BINS; j++) {
             int prev_idx = (j-1+N_BINS)%N_BINS;
             int next_idx = (j+1)%N_BINS;
@@ -325,7 +325,7 @@ std::vector<float> find_keypoint_orientations(Keypoint& kp,
     int y_end = std::round((kp.y + patch_radius)/pix_dist);
 
     // accumulate gradients in orientation histogram
-    // #pragma omp parallel for schedule(static) private(gx, gy, grad_norm, weight, theta, bin)
+    #pragma omp parallel for schedule(static) private(gx, gy, grad_norm, weight, theta, bin) collapse(2)
     for (int x = x_start; x <= x_end; x++) {    // can be parallelized
         for (int y = y_start; y <= y_end; y++) {
             gx = img_grad.get_pixel(x, y, 0);
@@ -335,6 +335,7 @@ std::vector<float> find_keypoint_orientations(Keypoint& kp,
                               /(2*patch_sigma*patch_sigma));
             theta = std::fmod(std::atan2(gy, gx)+2*M_PI, 2*M_PI);
             bin = (int)std::round(N_BINS/(2*M_PI)*theta) % N_BINS;
+            #pragma omp atomic
             hist[bin] += weight * grad_norm;
         }
     }
@@ -432,7 +433,7 @@ void compute_keypoint_descriptor(Keypoint& kp, float theta,
     float cos_t = std::cos(theta), sin_t = std::sin(theta);
     float patch_sigma = lambda_desc * kp.sigma;
     //accumulate samples into histograms
-    #pragma omp parallel for schedule(static) shared(histograms)
+    #pragma omp parallel for schedule(static) collapse(2)
     for (int m = x_start; m <= x_end; m++) {    // can be parallelized, but need to add lock to histograms when updating
         for (int n = y_start; n <= y_end; n++) {
             // find normalized coords w.r.t. kp position and reference orientation
@@ -476,10 +477,11 @@ std::vector<Keypoint> find_keypoints_and_descriptors(const Image& img, float sig
     
     std::vector<Keypoint> kps;
 
-    #pragma omp parallel for schedule(static) shared(kps)
+    #pragma omp parallel for schedule(static)
     for (Keypoint& kp_tmp : tmp_kps) {  // can be parallelized
         std::vector<float> orientations = find_keypoint_orientations(kp_tmp, grad_pyramid,
                                                                      lambda_ori, lambda_desc);
+        #pragma omp parallel for schedule(static)
         for (float theta : orientations) {
             Keypoint kp = kp_tmp;
             compute_keypoint_descriptor(kp, theta, grad_pyramid, lambda_desc);
@@ -509,10 +511,12 @@ std::vector<std::pair<int, int>> find_keypoint_matches(std::vector<Keypoint>& a,
 
     std::vector<std::pair<int, int>> matches;
 
-    for (int i = 0; i < a.size(); i++) {    // can be parallelied
+    #pragma omp parallel for schedule(static)
+    for (int i = 0; i < a.size(); i++) {    // can be parallelized
         // find two nearest neighbours in b for current keypoint from a
         int nn1_idx = -1;
         float nn1_dist = 100000000, nn2_dist = 100000000;
+        #pragma omp parallel for schedule(static)
         for (int j = 0; j < b.size(); j++) {
             float dist = euclidean_dist(a[i].descriptor, b[j].descriptor);
             if (dist < nn1_dist) {
@@ -524,6 +528,7 @@ std::vector<std::pair<int, int>> find_keypoint_matches(std::vector<Keypoint>& a,
             }
         }
         if (nn1_dist < thresh_relative*nn2_dist && nn1_dist < thresh_absolute) {
+            #pragma omp critical
             matches.push_back({i, nn1_idx});
         }
     }

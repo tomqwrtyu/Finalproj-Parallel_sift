@@ -35,4 +35,7 @@ if(OpenMP_CXX_FOUND)
     target_link_libraries(sift_omp PUBLIC
                           OpenMP::OpenMP_CXX
     )
+    target_link_libraries(img PUBLIC
+                          OpenMP::OpenMP_CXX
+    )
 endif()

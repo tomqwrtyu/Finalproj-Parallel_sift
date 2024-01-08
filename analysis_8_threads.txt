@@ -1,0 +1,513 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 39.16     13.23    13.23                             stbi_write_tga_core(stbi__write_context*, int, int, int, void*)
+ 23.26     21.09     7.86                             siftomp::update_histograms(float (*) [4][8], float, float, float, float, float)
+  9.71     24.37     3.28 297134121     0.00     0.00  Image::get_pixel(int, int, int) const
+  7.01     26.74     2.37      223     0.01     0.02  draw_line(Image&, int, int, int, int)
+  6.75     29.02     2.28      258     0.01     0.01  Image::Image(Image const&)
+  3.05     30.05     1.03 112276054     0.00     0.00  Image::set_pixel(int, int, int, float)
+  2.04     30.74     0.69                             bilinear_interpolate(Image const&, float, float, int)
+  1.78     31.34     0.60        1     0.60     1.07  Image::save(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  1.69     31.91     0.57        2     0.29     0.43  Image::Image(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  1.33     32.36     0.45        2     0.23     0.23  rgb_to_grayscale(Image const&)
+  1.30     32.80     0.44        1     0.44     0.47  stbi__pnm_info(stbi__context*, int*, int*, int*)
+  0.71     33.04     0.24                             _init
+  0.53     33.22     0.18        2     0.09     1.09  siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&)
+  0.44     33.37     0.15        2     0.08     0.10  stbi__decode_jpeg_image(stbi__jpeg*)
+  0.24     33.45     0.08  2257480     0.00     0.00  siftomp::point_is_extremum(std::vector<Image, std::allocator<Image> > const&, int, int, int)
+  0.24     33.53     0.08     3088     0.00     0.00  stbi__YCbCr_to_RGB_simd(unsigned char*, unsigned char const*, unsigned char const*, unsigned char const*, int, int)
+  0.24     33.61     0.08        1     0.08     5.75  siftomp::draw_matches(Image const&, Image const&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >)
+  0.09     33.64     0.03                             siftomp::smooth_histogram(float*)
+  0.06     33.66     0.02  8657280     0.00     0.00  stbiw__jpg_DCT(float*, float*, float*, float*, float*, float*, float*, float*)
+  0.06     33.68     0.02  1322782     0.00     0.00  stbi__grow_buffer_unsafe(stbi__jpeg*)
+  0.06     33.70     0.02   250500     0.00     0.00  stbi__jpeg_decode_block_prog_dc(stbi__jpeg*, short*, stbi__huffman*, int)
+  0.06     33.72     0.02       18     0.00     0.00  Image::resize(int, int, Interpolation) const
+  0.06     33.74     0.02                             siftomp::find_keypoint_orientations(siftomp::Keypoint&, siftomp::ScaleSpacePyramid const&, float, float)
+  0.03     33.75     0.01   253740     0.00     0.00  stbi__idct_simd(unsigned char*, int, short*)
+  0.03     33.76     0.01    29133     0.00     0.00  siftomp::fit_quadratic(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, int)
+  0.03     33.77     0.01    13923     0.00     0.00  siftomp::hists_to_vec(float (*) [4][8], std::array<unsigned char, 128ul>&)
+  0.03     33.78     0.01     6176     0.00     0.00  stbi__resample_row_hv_2_simd(unsigned char*, unsigned char*, unsigned char*, int, int)
+  0.01     33.79     0.01 11519274     0.00     0.00  stbi__stdio_write(void*, void*, int)
+  0.01     33.79     0.01                             stbi__hdr_convert(float*, unsigned char*, int)
+  0.00     33.79     0.00    21635     0.00     0.00  stbi__stdio_read(void*, char*, int)
+  0.00     33.79     0.00    15203     0.00     0.00  siftomp::compute_keypoint_descriptor(siftomp::Keypoint&, float, siftomp::ScaleSpacePyramid const&, float)
+  0.00     33.79     0.00    14815     0.00     0.00  void std::vector<float, std::allocator<float> >::_M_realloc_insert<float const&>(__gnu_cxx::__normal_iterator<float*, std::vector<float, std::allocator<float> > >, float const&)
+  0.00     33.79     0.00    13307     0.00     0.00  siftomp::point_is_on_edge(siftomp::Keypoint const&, std::vector<Image, std::allocator<Image> > const&, float)
+  0.00     33.79     0.00    12222     0.00     0.00  siftomp::refine_or_discard_keypoint(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, float, float)
+  0.00     33.79     0.00     3240     0.00     0.00  stbi__jpeg_decode_block(stbi__jpeg*, short*, stbi__huffman*, stbi__huffman*, short*, int, unsigned short*)
+  0.00     33.79     0.00     3088     0.00     0.00  resample_row_1(unsigned char*, unsigned char*, unsigned char*, int, int)
+  0.00     33.79     0.00      555     0.00     0.00  Image::~Image()
+  0.00     33.79     0.00       97     0.00     0.00  Image::Image(int, int, int)
+  0.00     33.79     0.00       96     0.00     0.00  Image::Image(Image&&)
+  0.00     33.79     0.00       82     0.00     0.00  gaussian_blur(Image const&, float)
+  0.00     33.79     0.00       56     0.00     0.00  stbi__get8(stbi__context*)
+  0.00     33.79     0.00       48     0.00     0.00  std::vector<Image, std::allocator<Image> >::reserve(unsigned long)
+  0.00     33.79     0.00       38     0.00     0.00  stbi__get16be(stbi__context*)
+  0.00     33.79     0.00       22     0.00     0.00  stbi__process_marker(stbi__jpeg*, int)
+  0.00     33.79     0.00       20     0.00     0.00  Image::operator=(Image&&)
+  0.00     33.79     0.00       16     0.00     0.00  stbi__build_huffman(stbi__huffman*, int*)
+  0.00     33.79     0.00        9     0.00     0.00  void std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >::_M_realloc_insert<std::pair<int, int> >(__gnu_cxx::__normal_iterator<std::pair<int, int>*, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > > >, std::pair<int, int>&&)
+  0.00     33.79     0.00        6     0.00     0.00  void std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >::_M_realloc_insert<siftomp::Keypoint const&>(__gnu_cxx::__normal_iterator<siftomp::Keypoint*, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> > >, siftomp::Keypoint const&)
+  0.00     33.79     0.00        6     0.00     0.00  void std::vector<float, std::allocator<float> >::_M_realloc_insert<float>(__gnu_cxx::__normal_iterator<float*, std::vector<float, std::allocator<float> > >, float&&)
+  0.00     33.79     0.00        3     0.00     0.00  stbi__malloc_mad3(int, int, int, int)
+  0.00     33.79     0.00        3     0.00     0.00  std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&)
+  0.00     33.79     0.00        2     0.00     0.00  stbi__bmp_load(stbi__context*, int*, int*, int*, int, stbi__result_info*) [clone .constprop.0]
+  0.00     33.79     0.00        2     0.00     0.15  stbi__load_main(stbi__context*, int*, int*, int*, int, stbi__result_info*, int)
+  0.00     33.79     0.00        2     0.00     0.00  stbi__mad3sizes_valid(int, int, int, int)
+  0.00     33.79     0.00        2     0.00     0.15  stbi__load_and_postprocess_8bit(stbi__context*, int*, int*, int*, int)
+  0.00     33.79     0.00        2     0.00     0.01  siftomp::generate_gaussian_pyramid(Image const&, float, int, int)
+  0.00     33.79     0.00        2     0.00     0.42  siftomp::generate_gradient_pyramid(siftomp::ScaleSpacePyramid const&)
+  0.00     33.79     0.00        2     0.00     1.53  siftomp::find_keypoints_and_descriptors(Image const&, float, int, int, float, float, float, float)
+  0.00     33.79     0.00        1     0.00     0.00  stbi__stdio_skip(void*, int)
+  0.00     33.79     0.00        1     0.00     0.00  siftomp::find_keypoint_matches(std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, float, float)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2023 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.03% of 33.79 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     39.2   13.23    0.00                 stbi_write_tga_core(stbi__write_context*, int, int, int, void*) [1]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     33.1    0.00   11.19                 main [2]
+                0.08    5.67       1/1           siftomp::draw_matches(Image const&, Image const&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >) [4]
+                0.00    3.06       2/2           siftomp::find_keypoints_and_descriptors(Image const&, float, int, int, float, float, float, float) [7]
+                0.60    0.47       1/1           Image::save(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [10]
+                0.57    0.29       2/2           Image::Image(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [12]
+                0.45    0.00       2/2           rgb_to_grayscale(Image const&) [16]
+                0.00    0.00       5/555         Image::~Image() [102]
+                0.00    0.00       3/3           std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [115]
+                0.00    0.00       2/20          Image::operator=(Image&&) [109]
+                0.00    0.00       1/1           siftomp::find_keypoint_matches(std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, float, float) [118]
+-----------------------------------------------
+                             28148193             siftomp::update_histograms(float (*) [4][8], float, float, float, float, float) [3]
+[3]     24.8    7.86    0.53       0+28148193 siftomp::update_histograms(float (*) [4][8], float, float, float, float, float) [3]
+                0.53    0.00 47594346/297134121     Image::get_pixel(int, int, int) const [6]
+                             28148193             siftomp::update_histograms(float (*) [4][8], float, float, float, float, float) [3]
+-----------------------------------------------
+                0.08    5.67       1/1           main [2]
+[4]     17.0    0.08    5.67       1         siftomp::draw_matches(Image const&, Image const&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >) [4]
+                2.37    2.65     223/223         draw_line(Image&, int, int, int, int) [5]
+                0.36    0.00 32406897/297134121     Image::get_pixel(int, int, int) const [6]
+                0.30    0.00 32406897/112276054     Image::set_pixel(int, int, int, float) [11]
+                0.00    0.00       1/97          Image::Image(int, int, int) [103]
+-----------------------------------------------
+                2.37    2.65     223/223         siftomp::draw_matches(Image const&, Image const&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >) [4]
+[5]     14.9    2.37    2.65     223         draw_line(Image&, int, int, int, int) [5]
+                1.92    0.00 173639760/297134121     Image::get_pixel(int, int, int) const [6]
+                0.73    0.00 79869157/112276054     Image::set_pixel(int, int, int, float) [11]
+-----------------------------------------------
+                0.00    0.00  119535/297134121     siftomp::point_is_on_edge(siftomp::Keypoint const&, std::vector<Image, std::allocator<Image> > const&, float) [38]
+                0.01    0.00  826831/297134121     siftomp::fit_quadratic(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, int) [31]
+                0.23    0.00 20641789/297134121     siftomp::point_is_extremum(std::vector<Image, std::allocator<Image> > const&, int, int, int) [17]
+                0.24    0.00 21904963/297134121     siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&) [9]
+                0.36    0.00 32406897/297134121     siftomp::draw_matches(Image const&, Image const&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >) [4]
+                0.53    0.00 47594346/297134121     siftomp::update_histograms(float (*) [4][8], float, float, float, float, float) [3]
+                1.92    0.00 173639760/297134121     draw_line(Image&, int, int, int, int) [5]
+[6]      9.7    3.28    0.00 297134121         Image::get_pixel(int, int, int) const [6]
+-----------------------------------------------
+                0.00    3.06       2/2           main [2]
+[7]      9.1    0.00    3.06       2         siftomp::find_keypoints_and_descriptors(Image const&, float, int, int, float, float, float, float) [7]
+                0.18    1.99       2/2           siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&) [9]
+                0.00    0.85       2/2           siftomp::generate_gradient_pyramid(siftomp::ScaleSpacePyramid const&) [13]
+                0.00    0.02       2/2           siftomp::generate_gaussian_pyramid(Image const&, float, int, int) [29]
+                0.02    0.00       2/258         Image::Image(Image const&) [8]
+                0.00    0.00     274/555         Image::~Image() [102]
+                0.00    0.00       9/9           void std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >::_M_realloc_insert<std::pair<int, int> >(__gnu_cxx::__normal_iterator<std::pair<int, int>*, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > > >, std::pair<int, int>&&) [111]
+-----------------------------------------------
+                0.02    0.00       2/258         siftomp::find_keypoints_and_descriptors(Image const&, float, int, int, float, float, float, float) [7]
+                0.85    0.00      96/258         siftomp::generate_gradient_pyramid(siftomp::ScaleSpacePyramid const&) [13]
+                1.41    0.00     160/258         siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&) [9]
+[8]      6.7    2.28    0.00     258         Image::Image(Image const&) [8]
+-----------------------------------------------
+                0.18    1.99       2/2           siftomp::find_keypoints_and_descriptors(Image const&, float, int, int, float, float, float, float) [7]
+[9]      6.4    0.18    1.99       2         siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&) [9]
+                1.41    0.00     160/258         Image::Image(Image const&) [8]
+                0.08    0.23 2257480/2257480     siftomp::point_is_extremum(std::vector<Image, std::allocator<Image> > const&, int, int, int) [17]
+                0.24    0.00 21904963/297134121     Image::get_pixel(int, int, int) const [6]
+                0.00    0.02   12222/12222       siftomp::refine_or_discard_keypoint(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, float, float) [25]
+                0.00    0.01   15203/15203       siftomp::compute_keypoint_descriptor(siftomp::Keypoint&, float, siftomp::ScaleSpacePyramid const&, float) [33]
+                0.00    0.00      80/555         Image::~Image() [102]
+                0.00    0.00      16/48          std::vector<Image, std::allocator<Image> >::reserve(unsigned long) [107]
+                0.00    0.00       6/6           void std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >::_M_realloc_insert<siftomp::Keypoint const&>(__gnu_cxx::__normal_iterator<siftomp::Keypoint*, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> > >, siftomp::Keypoint const&) [112]
+-----------------------------------------------
+                0.60    0.47       1/1           main [2]
+[10]     3.2    0.60    0.47       1         Image::save(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [10]
+                0.44    0.03       1/1           stbi__pnm_info(stbi__context*, int*, int*, int*) [15]
+-----------------------------------------------
+                0.30    0.00 32406897/112276054     siftomp::draw_matches(Image const&, Image const&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >) [4]
+                0.73    0.00 79869157/112276054     draw_line(Image&, int, int, int, int) [5]
+[11]     3.0    1.03    0.00 112276054         Image::set_pixel(int, int, int, float) [11]
+-----------------------------------------------
+                0.57    0.29       2/2           main [2]
+[12]     2.5    0.57    0.29       2         Image::Image(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [12]
+                0.00    0.29       2/2           stbi__load_and_postprocess_8bit(stbi__context*, int*, int*, int*, int) [19]
+                0.00    0.00       2/21635       stbi__stdio_read(void*, char*, int) [99]
+-----------------------------------------------
+                0.00    0.85       2/2           siftomp::find_keypoints_and_descriptors(Image const&, float, int, int, float, float, float, float) [7]
+[13]     2.5    0.00    0.85       2         siftomp::generate_gradient_pyramid(siftomp::ScaleSpacePyramid const&) [13]
+                0.85    0.00      96/258         Image::Image(Image const&) [8]
+                0.00    0.00      96/555         Image::~Image() [102]
+                0.00    0.00      96/97          Image::Image(int, int, int) [103]
+                0.00    0.00      16/48          std::vector<Image, std::allocator<Image> >::reserve(unsigned long) [107]
+-----------------------------------------------
+                             7936920             bilinear_interpolate(Image const&, float, float, int) [14]
+[14]     2.0    0.69    0.00       0+7936920 bilinear_interpolate(Image const&, float, float, int) [14]
+                             7936920             bilinear_interpolate(Image const&, float, float, int) [14]
+-----------------------------------------------
+                              541080             stbi__pnm_info(stbi__context*, int*, int*, int*) [15]
+                0.44    0.03       1/1           Image::save(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [10]
+[15]     1.4    0.44    0.03       1+541080  stbi__pnm_info(stbi__context*, int*, int*, int*) [15]
+                0.02    0.00 8657280/8657280     stbiw__jpg_DCT(float*, float*, float*, float*, float*, float*, float*, float*) [26]
+                0.01    0.00 11519270/11519274     stbi__stdio_write(void*, void*, int) [36]
+                              541080             stbi__pnm_info(stbi__context*, int*, int*, int*) [15]
+-----------------------------------------------
+                0.45    0.00       2/2           main [2]
+[16]     1.3    0.45    0.00       2         rgb_to_grayscale(Image const&) [16]
+-----------------------------------------------
+                0.08    0.23 2257480/2257480     siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&) [9]
+[17]     0.9    0.08    0.23 2257480         siftomp::point_is_extremum(std::vector<Image, std::allocator<Image> > const&, int, int, int) [17]
+                0.23    0.00 20641789/297134121     Image::get_pixel(int, int, int) const [6]
+-----------------------------------------------
+                0.00    0.29       2/2           stbi__load_and_postprocess_8bit(stbi__context*, int*, int*, int*, int) [19]
+[18]     0.9    0.00    0.29       2         stbi__load_main(stbi__context*, int*, int*, int*, int, stbi__result_info*, int) [18]
+                0.15    0.05       2/2           stbi__decode_jpeg_image(stbi__jpeg*) [21]
+                0.08    0.00    3088/3088        stbi__YCbCr_to_RGB_simd(unsigned char*, unsigned char const*, unsigned char const*, unsigned char const*, int, int) [22]
+                0.01    0.00    6176/6176        stbi__resample_row_hv_2_simd(unsigned char*, unsigned char*, unsigned char*, int, int) [35]
+                0.00    0.00    3088/3088        resample_row_1(unsigned char*, unsigned char*, unsigned char*, int, int) [101]
+-----------------------------------------------
+                0.00    0.29       2/2           Image::Image(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [12]
+[19]     0.9    0.00    0.29       2         stbi__load_and_postprocess_8bit(stbi__context*, int*, int*, int*, int) [19]
+                0.00    0.29       2/2           stbi__load_main(stbi__context*, int*, int*, int*, int, stbi__result_info*, int) [18]
+-----------------------------------------------
+                                                 <spontaneous>
+[20]     0.7    0.24    0.00                 _init [20]
+-----------------------------------------------
+                0.15    0.05       2/2           stbi__load_main(stbi__context*, int*, int*, int*, int, stbi__result_info*, int) [18]
+[21]     0.6    0.15    0.05       2         stbi__decode_jpeg_image(stbi__jpeg*) [21]
+                0.02    0.00  250500/250500      stbi__jpeg_decode_block_prog_dc(stbi__jpeg*, short*, stbi__huffman*, int) [24]
+                0.02    0.00 1202473/1322782     stbi__grow_buffer_unsafe(stbi__jpeg*) [27]
+                0.01    0.00  253740/253740      stbi__idct_simd(unsigned char*, int, short*) [32]
+                0.00    0.00    3240/3240        stbi__jpeg_decode_block(stbi__jpeg*, short*, stbi__huffman*, stbi__huffman*, short*, int, unsigned short*) [39]
+                0.00    0.00      15/22          stbi__process_marker(stbi__jpeg*, int) [40]
+                0.00    0.00       2/2           stbi__bmp_load(stbi__context*, int*, int*, int*, int, stbi__result_info*) [clone .constprop.0] [41]
+                0.00    0.00      36/56          stbi__get8(stbi__context*) [106]
+                0.00    0.00      12/38          stbi__get16be(stbi__context*) [108]
+-----------------------------------------------
+                0.08    0.00    3088/3088        stbi__load_main(stbi__context*, int*, int*, int*, int, stbi__result_info*, int) [18]
+[22]     0.2    0.08    0.00    3088         stbi__YCbCr_to_RGB_simd(unsigned char*, unsigned char const*, unsigned char const*, unsigned char const*, int, int) [22]
+-----------------------------------------------
+                                                 <spontaneous>
+[23]     0.1    0.03    0.00                 siftomp::smooth_histogram(float*) [23]
+-----------------------------------------------
+                0.02    0.00  250500/250500      stbi__decode_jpeg_image(stbi__jpeg*) [21]
+[24]     0.1    0.02    0.00  250500         stbi__jpeg_decode_block_prog_dc(stbi__jpeg*, short*, stbi__huffman*, int) [24]
+                0.00    0.00  105185/1322782     stbi__grow_buffer_unsafe(stbi__jpeg*) [27]
+-----------------------------------------------
+                0.00    0.02   12222/12222       siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&) [9]
+[25]     0.1    0.00    0.02   12222         siftomp::refine_or_discard_keypoint(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, float, float) [25]
+                0.01    0.01   29133/29133       siftomp::fit_quadratic(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, int) [31]
+                0.00    0.00   13307/13307       siftomp::point_is_on_edge(siftomp::Keypoint const&, std::vector<Image, std::allocator<Image> > const&, float) [38]
+-----------------------------------------------
+                0.02    0.00 8657280/8657280     stbi__pnm_info(stbi__context*, int*, int*, int*) [15]
+[26]     0.1    0.02    0.00 8657280         stbiw__jpg_DCT(float*, float*, float*, float*, float*, float*, float*, float*) [26]
+-----------------------------------------------
+                0.00    0.00   15124/1322782     stbi__jpeg_decode_block(stbi__jpeg*, short*, stbi__huffman*, stbi__huffman*, short*, int, unsigned short*) [39]
+                0.00    0.00  105185/1322782     stbi__jpeg_decode_block_prog_dc(stbi__jpeg*, short*, stbi__huffman*, int) [24]
+                0.02    0.00 1202473/1322782     stbi__decode_jpeg_image(stbi__jpeg*) [21]
+[27]     0.1    0.02    0.00 1322782         stbi__grow_buffer_unsafe(stbi__jpeg*) [27]
+                0.00    0.00   21620/21635       stbi__stdio_read(void*, char*, int) [99]
+-----------------------------------------------
+                0.02    0.00      18/18          siftomp::generate_gaussian_pyramid(Image const&, float, int, int) [29]
+[28]     0.1    0.02    0.00      18         Image::resize(int, int, Interpolation) const [28]
+-----------------------------------------------
+                0.00    0.02       2/2           siftomp::find_keypoints_and_descriptors(Image const&, float, int, int, float, float, float, float) [7]
+[29]     0.1    0.00    0.02       2         siftomp::generate_gaussian_pyramid(Image const&, float, int, int) [29]
+                0.02    0.00      18/18          Image::resize(int, int, Interpolation) const [28]
+                0.00    0.00     100/555         Image::~Image() [102]
+                0.00    0.00      96/96          Image::Image(Image&&) [104]
+                0.00    0.00      82/82          gaussian_blur(Image const&, float) [105]
+                0.00    0.00      18/20          Image::operator=(Image&&) [109]
+                0.00    0.00      16/48          std::vector<Image, std::allocator<Image> >::reserve(unsigned long) [107]
+                0.00    0.00       6/6           void std::vector<float, std::allocator<float> >::_M_realloc_insert<float>(__gnu_cxx::__normal_iterator<float*, std::vector<float, std::allocator<float> > >, float&&) [113]
+-----------------------------------------------
+                               11682             siftomp::find_keypoint_orientations(siftomp::Keypoint&, siftomp::ScaleSpacePyramid const&, float, float) [30]
+[30]     0.1    0.02    0.00       0+11682   siftomp::find_keypoint_orientations(siftomp::Keypoint&, siftomp::ScaleSpacePyramid const&, float, float) [30]
+                0.00    0.00   14815/14815       void std::vector<float, std::allocator<float> >::_M_realloc_insert<float const&>(__gnu_cxx::__normal_iterator<float*, std::vector<float, std::allocator<float> > >, float const&) [100]
+                               11682             siftomp::find_keypoint_orientations(siftomp::Keypoint&, siftomp::ScaleSpacePyramid const&, float, float) [30]
+-----------------------------------------------
+                0.01    0.01   29133/29133       siftomp::refine_or_discard_keypoint(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, float, float) [25]
+[31]     0.1    0.01    0.01   29133         siftomp::fit_quadratic(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, int) [31]
+                0.01    0.00  826831/297134121     Image::get_pixel(int, int, int) const [6]
+-----------------------------------------------
+                0.01    0.00  253740/253740      stbi__decode_jpeg_image(stbi__jpeg*) [21]
+[32]     0.0    0.01    0.00  253740         stbi__idct_simd(unsigned char*, int, short*) [32]
+-----------------------------------------------
+                0.00    0.01   15203/15203       siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&) [9]
+[33]     0.0    0.00    0.01   15203         siftomp::compute_keypoint_descriptor(siftomp::Keypoint&, float, siftomp::ScaleSpacePyramid const&, float) [33]
+                0.01    0.00   13923/13923       siftomp::hists_to_vec(float (*) [4][8], std::array<unsigned char, 128ul>&) [34]
+-----------------------------------------------
+                0.01    0.00   13923/13923       siftomp::compute_keypoint_descriptor(siftomp::Keypoint&, float, siftomp::ScaleSpacePyramid const&, float) [33]
+[34]     0.0    0.01    0.00   13923         siftomp::hists_to_vec(float (*) [4][8], std::array<unsigned char, 128ul>&) [34]
+-----------------------------------------------
+                0.01    0.00    6176/6176        stbi__load_main(stbi__context*, int*, int*, int*, int, stbi__result_info*, int) [18]
+[35]     0.0    0.01    0.00    6176         stbi__resample_row_hv_2_simd(unsigned char*, unsigned char*, unsigned char*, int, int) [35]
+-----------------------------------------------
+                0.00    0.00       4/11519274     stbi__process_marker(stbi__jpeg*, int) [40]
+                0.01    0.00 11519270/11519274     stbi__pnm_info(stbi__context*, int*, int*, int*) [15]
+[36]     0.0    0.01    0.00 11519274         stbi__stdio_write(void*, void*, int) [36]
+-----------------------------------------------
+                                                 <spontaneous>
+[37]     0.0    0.01    0.00                 stbi__hdr_convert(float*, unsigned char*, int) [37]
+-----------------------------------------------
+                0.00    0.00   13307/13307       siftomp::refine_or_discard_keypoint(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, float, float) [25]
+[38]     0.0    0.00    0.00   13307         siftomp::point_is_on_edge(siftomp::Keypoint const&, std::vector<Image, std::allocator<Image> > const&, float) [38]
+                0.00    0.00  119535/297134121     Image::get_pixel(int, int, int) const [6]
+-----------------------------------------------
+                0.00    0.00    3240/3240        stbi__decode_jpeg_image(stbi__jpeg*) [21]
+[39]     0.0    0.00    0.00    3240         stbi__jpeg_decode_block(stbi__jpeg*, short*, stbi__huffman*, stbi__huffman*, short*, int, unsigned short*) [39]
+                0.00    0.00   15124/1322782     stbi__grow_buffer_unsafe(stbi__jpeg*) [27]
+-----------------------------------------------
+                0.00    0.00       7/22          stbi__bmp_load(stbi__context*, int*, int*, int*, int, stbi__result_info*) [clone .constprop.0] [41]
+                0.00    0.00      15/22          stbi__decode_jpeg_image(stbi__jpeg*) [21]
+[40]     0.0    0.00    0.00      22         stbi__process_marker(stbi__jpeg*, int) [40]
+                0.00    0.00       4/11519274     stbi__stdio_write(void*, void*, int) [36]
+                0.00    0.00      22/38          stbi__get16be(stbi__context*) [108]
+                0.00    0.00      16/16          stbi__build_huffman(stbi__huffman*, int*) [110]
+                0.00    0.00      11/21635       stbi__stdio_read(void*, char*, int) [99]
+                0.00    0.00       1/1           stbi__stdio_skip(void*, int) [117]
+-----------------------------------------------
+                0.00    0.00       2/2           stbi__decode_jpeg_image(stbi__jpeg*) [21]
+[41]     0.0    0.00    0.00       2         stbi__bmp_load(stbi__context*, int*, int*, int*, int, stbi__result_info*) [clone .constprop.0] [41]
+                0.00    0.00       7/22          stbi__process_marker(stbi__jpeg*, int) [40]
+                0.00    0.00      20/56          stbi__get8(stbi__context*) [106]
+                0.00    0.00       4/38          stbi__get16be(stbi__context*) [108]
+                0.00    0.00       3/3           stbi__malloc_mad3(int, int, int, int) [114]
+                0.00    0.00       2/2           stbi__mad3sizes_valid(int, int, int, int) [116]
+                0.00    0.00       1/21635       stbi__stdio_read(void*, char*, int) [99]
+-----------------------------------------------
+                0.00    0.00       1/21635       stbi__get16be(stbi__context*) [108]
+                0.00    0.00       1/21635       stbi__bmp_load(stbi__context*, int*, int*, int*, int, stbi__result_info*) [clone .constprop.0] [41]
+                0.00    0.00       2/21635       Image::Image(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [12]
+                0.00    0.00      11/21635       stbi__process_marker(stbi__jpeg*, int) [40]
+                0.00    0.00   21620/21635       stbi__grow_buffer_unsafe(stbi__jpeg*) [27]
+[99]     0.0    0.00    0.00   21635         stbi__stdio_read(void*, char*, int) [99]
+-----------------------------------------------
+                0.00    0.00   14815/14815       siftomp::find_keypoint_orientations(siftomp::Keypoint&, siftomp::ScaleSpacePyramid const&, float, float) [30]
+[100]    0.0    0.00    0.00   14815         void std::vector<float, std::allocator<float> >::_M_realloc_insert<float const&>(__gnu_cxx::__normal_iterator<float*, std::vector<float, std::allocator<float> > >, float const&) [100]
+-----------------------------------------------
+                0.00    0.00    3088/3088        stbi__load_main(stbi__context*, int*, int*, int*, int, stbi__result_info*, int) [18]
+[101]    0.0    0.00    0.00    3088         resample_row_1(unsigned char*, unsigned char*, unsigned char*, int, int) [101]
+-----------------------------------------------
+                0.00    0.00       5/555         main [2]
+                0.00    0.00      80/555         siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&) [9]
+                0.00    0.00      96/555         siftomp::generate_gradient_pyramid(siftomp::ScaleSpacePyramid const&) [13]
+                0.00    0.00     100/555         siftomp::generate_gaussian_pyramid(Image const&, float, int, int) [29]
+                0.00    0.00     274/555         siftomp::find_keypoints_and_descriptors(Image const&, float, int, int, float, float, float, float) [7]
+[102]    0.0    0.00    0.00     555         Image::~Image() [102]
+-----------------------------------------------
+                0.00    0.00       1/97          siftomp::draw_matches(Image const&, Image const&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >) [4]
+                0.00    0.00      96/97          siftomp::generate_gradient_pyramid(siftomp::ScaleSpacePyramid const&) [13]
+[103]    0.0    0.00    0.00      97         Image::Image(int, int, int) [103]
+-----------------------------------------------
+                0.00    0.00      96/96          siftomp::generate_gaussian_pyramid(Image const&, float, int, int) [29]
+[104]    0.0    0.00    0.00      96         Image::Image(Image&&) [104]
+-----------------------------------------------
+                0.00    0.00      82/82          siftomp::generate_gaussian_pyramid(Image const&, float, int, int) [29]
+[105]    0.0    0.00    0.00      82         gaussian_blur(Image const&, float) [105]
+-----------------------------------------------
+                0.00    0.00      20/56          stbi__bmp_load(stbi__context*, int*, int*, int*, int, stbi__result_info*) [clone .constprop.0] [41]
+                0.00    0.00      36/56          stbi__decode_jpeg_image(stbi__jpeg*) [21]
+[106]    0.0    0.00    0.00      56         stbi__get8(stbi__context*) [106]
+-----------------------------------------------
+                0.00    0.00      16/48          siftomp::generate_gradient_pyramid(siftomp::ScaleSpacePyramid const&) [13]
+                0.00    0.00      16/48          siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&) [9]
+                0.00    0.00      16/48          siftomp::generate_gaussian_pyramid(Image const&, float, int, int) [29]
+[107]    0.0    0.00    0.00      48         std::vector<Image, std::allocator<Image> >::reserve(unsigned long) [107]
+-----------------------------------------------
+                0.00    0.00       4/38          stbi__bmp_load(stbi__context*, int*, int*, int*, int, stbi__result_info*) [clone .constprop.0] [41]
+                0.00    0.00      12/38          stbi__decode_jpeg_image(stbi__jpeg*) [21]
+                0.00    0.00      22/38          stbi__process_marker(stbi__jpeg*, int) [40]
+[108]    0.0    0.00    0.00      38         stbi__get16be(stbi__context*) [108]
+                0.00    0.00       1/21635       stbi__stdio_read(void*, char*, int) [99]
+-----------------------------------------------
+                0.00    0.00       2/20          main [2]
+                0.00    0.00      18/20          siftomp::generate_gaussian_pyramid(Image const&, float, int, int) [29]
+[109]    0.0    0.00    0.00      20         Image::operator=(Image&&) [109]
+-----------------------------------------------
+                0.00    0.00      16/16          stbi__process_marker(stbi__jpeg*, int) [40]
+[110]    0.0    0.00    0.00      16         stbi__build_huffman(stbi__huffman*, int*) [110]
+-----------------------------------------------
+                0.00    0.00       9/9           siftomp::find_keypoints_and_descriptors(Image const&, float, int, int, float, float, float, float) [7]
+[111]    0.0    0.00    0.00       9         void std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >::_M_realloc_insert<std::pair<int, int> >(__gnu_cxx::__normal_iterator<std::pair<int, int>*, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > > >, std::pair<int, int>&&) [111]
+-----------------------------------------------
+                0.00    0.00       6/6           siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&) [9]
+[112]    0.0    0.00    0.00       6         void std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >::_M_realloc_insert<siftomp::Keypoint const&>(__gnu_cxx::__normal_iterator<siftomp::Keypoint*, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> > >, siftomp::Keypoint const&) [112]
+-----------------------------------------------
+                0.00    0.00       6/6           siftomp::generate_gaussian_pyramid(Image const&, float, int, int) [29]
+[113]    0.0    0.00    0.00       6         void std::vector<float, std::allocator<float> >::_M_realloc_insert<float>(__gnu_cxx::__normal_iterator<float*, std::vector<float, std::allocator<float> > >, float&&) [113]
+-----------------------------------------------
+                0.00    0.00       3/3           stbi__bmp_load(stbi__context*, int*, int*, int*, int, stbi__result_info*) [clone .constprop.0] [41]
+[114]    0.0    0.00    0.00       3         stbi__malloc_mad3(int, int, int, int) [114]
+-----------------------------------------------
+                0.00    0.00       3/3           main [2]
+[115]    0.0    0.00    0.00       3         std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [115]
+-----------------------------------------------
+                0.00    0.00       2/2           stbi__bmp_load(stbi__context*, int*, int*, int*, int, stbi__result_info*) [clone .constprop.0] [41]
+[116]    0.0    0.00    0.00       2         stbi__mad3sizes_valid(int, int, int, int) [116]
+-----------------------------------------------
+                0.00    0.00       1/1           stbi__process_marker(stbi__jpeg*, int) [40]
+[117]    0.0    0.00    0.00       1         stbi__stdio_skip(void*, int) [117]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[118]    0.0    0.00    0.00       1         siftomp::find_keypoint_matches(std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, float, float) [118]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2023 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+ [105] gaussian_blur(Image const&, float) [116] stbi__mad3sizes_valid(int, int, int, int) (image.cpp) [23] siftomp::smooth_histogram(float*)
+  [16] rgb_to_grayscale(Image const&) [22] stbi__YCbCr_to_RGB_simd(unsigned char*, unsigned char const*, unsigned char const*, unsigned char const*, int, int) (stb_image.h) [17] siftomp::point_is_extremum(std::vector<Image, std::allocator<Image> > const&, int, int, int)
+  [14] bilinear_interpolate(Image const&, float, float, int) [21] stbi__decode_jpeg_image(stbi__jpeg*) (stb_image.h) [3] siftomp::update_histograms(float (*) [4][8], float, float, float, float, float)
+   [5] draw_line(Image&, int, int, int, int) [39] stbi__jpeg_decode_block(stbi__jpeg*, short*, stbi__huffman*, stbi__huffman*, short*, int, unsigned short*) (stb_image.h) [9] siftomp::generate_dog_pyramid(siftomp::ScaleSpacePyramid const&)
+ [106] stbi__get8(stbi__context*) (stb_image.h) [27] stbi__grow_buffer_unsafe(stbi__jpeg*) (stb_image.h) [118] siftomp::find_keypoint_matches(std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, float, float)
+ [108] stbi__get16be(stbi__context*) (stb_image.h) [35] stbi__resample_row_hv_2_simd(unsigned char*, unsigned char*, unsigned char*, int, int) (stb_image.h) [29] siftomp::generate_gaussian_pyramid(Image const&, float, int, int)
+ [101] resample_row_1(unsigned char*, unsigned char*, unsigned char*, int, int) (image.cpp) [24] stbi__jpeg_decode_block_prog_dc(stbi__jpeg*, short*, stbi__huffman*, int) (stb_image.h) [13] siftomp::generate_gradient_pyramid(siftomp::ScaleSpacePyramid const&)
+  [41] stbi__bmp_load(stbi__context*, int*, int*, int*, int, stbi__result_info*) [clone .constprop.0] (stb_image.h) [19] stbi__load_and_postprocess_8bit(stbi__context*, int*, int*, int*, int) (stb_image.h) [30] siftomp::find_keypoint_orientations(siftomp::Keypoint&, siftomp::ScaleSpacePyramid const&, float, float)
+  [15] stbi__pnm_info(stbi__context*, int*, int*, int*) (stb_image.h) [10] Image::save(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [25] siftomp::refine_or_discard_keypoint(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, float, float)
+  [26] stbiw__jpg_DCT(float*, float*, float*, float*, float*, float*, float*, float*) (stb_image_write.h) [11] Image::set_pixel(int, int, int, float) [33] siftomp::compute_keypoint_descriptor(siftomp::Keypoint&, float, siftomp::ScaleSpacePyramid const&, float)
+  [32] stbi__idct_simd(unsigned char*, int, short*) (stb_image.h) [12] Image::Image(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [7] siftomp::find_keypoints_and_descriptors(Image const&, float, int, int, float, float, float, float)
+  [18] stbi__load_main(stbi__context*, int*, int*, int*, int, stbi__result_info*, int) (stb_image.h) [104] Image::Image(Image&&) [28] Image::resize(int, int, Interpolation) const
+  [99] stbi__stdio_read(void*, char*, int) (stb_image.h) [8] Image::Image(Image const&) [6] Image::get_pixel(int, int, int) const
+ [117] stbi__stdio_skip(void*, int) (stb_image.h) [103] Image::Image(int, int, int) [107] std::vector<Image, std::allocator<Image> >::reserve(unsigned long)
+  [37] stbi__hdr_convert(float*, unsigned char*, int) (stb_image.h) [102] Image::~Image() [112] void std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >::_M_realloc_insert<siftomp::Keypoint const&>(__gnu_cxx::__normal_iterator<siftomp::Keypoint*, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> > >, siftomp::Keypoint const&)
+ [114] stbi__malloc_mad3(int, int, int, int) (stb_image.h) [109] Image::operator=(Image&&) [111] void std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >::_M_realloc_insert<std::pair<int, int> >(__gnu_cxx::__normal_iterator<std::pair<int, int>*, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > > >, std::pair<int, int>&&)
+  [36] stbi__stdio_write(void*, void*, int) (stb_image_write.h) [4] siftomp::draw_matches(Image const&, Image const&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<siftomp::Keypoint, std::allocator<siftomp::Keypoint> >&, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >) [100] void std::vector<float, std::allocator<float> >::_M_realloc_insert<float const&>(__gnu_cxx::__normal_iterator<float*, std::vector<float, std::allocator<float> > >, float const&)
+ [110] stbi__build_huffman(stbi__huffman*, int*) (stb_image.h) [34] siftomp::hists_to_vec(float (*) [4][8], std::array<unsigned char, 128ul>&) [113] void std::vector<float, std::allocator<float> >::_M_realloc_insert<float>(__gnu_cxx::__normal_iterator<float*, std::vector<float, std::allocator<float> > >, float&&)
+   [1] stbi_write_tga_core(stbi__write_context*, int, int, int, void*) (stb_image_write.h) [31] siftomp::fit_quadratic(siftomp::Keypoint&, std::vector<Image, std::allocator<Image> > const&, int) [115] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&)
+  [40] stbi__process_marker(stbi__jpeg*, int) (stb_image.h) [38] siftomp::point_is_on_edge(siftomp::Keypoint const&, std::vector<Image, std::allocator<Image> > const&, float) [20] _init

@@ -20,3 +20,28 @@ Sequential:
     Eiffeltower_anthony_large:
         Found 19355 feature matches. Output image is saved as imgs/results/Eiffeltower_anthony_large_result.jpg
         Spend: 480667607 microseconds on finding keypoints and matching them.
+
+Multi-thread (8-threads):
+#   Rotated_book:
+        Found 135 feature matches. Output image is saved as imgs/results/book_rotated_result.jpg
+        Spend: 764079 microseconds on finding keypoints and matching them.
+#   Balloon: 
+        Found 223 feature matches. Output image is saved as result.jpg
+        Spend: 24352480 microseconds on finding keypoints and matching them.
+#   Arc de Triomphe_large:
+        Found 8388 feature matches. Output image is saved as imgs/results/Arc de Triomphe_large.jpg
+        Spend: 47540511 microseconds on finding keypoints and matching them.
+#   Eiffeltower_anthony_large:
+        Found 19355 feature matches. Output image is saved as imgs/results/Eiffeltower_anthony_large_result.jpg
+        Spend: 107027734 microseconds on finding keypoints and matching them.
+
+Ablation
+original 8-thread 24352480
+72 generate_dog_pyramid 28816193
+generate_gaussian_pyramid 54815706
+231 242 find_keypoints 33142231
+269 generate_gradient_pyramid 43221197
+328 338 find_keypoint_orientations 29408666
+436 compute_keypoint_descriptor 29971754
+480 484 488 find_keypoints_and_descriptors 35930632
+514 519 531 find_keypoint_matches 30211664

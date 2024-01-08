@@ -36,12 +36,12 @@ Multi-thread (8-threads):
         Spend: 107027734 microseconds on finding keypoints and matching them.
 
 Ablation
-original 8-thread 24352480
-72 generate_dog_pyramid 28816193
-generate_gaussian_pyramid 54815706
-231 242 find_keypoints 33142231
-269 generate_gradient_pyramid 43221197
-328 338 find_keypoint_orientations 29408666
-436 compute_keypoint_descriptor 29971754
-480 484 488 find_keypoints_and_descriptors 35930632
-514 519 531 find_keypoint_matches 30211664
+original_8_thread = 24352480
+generate_dog_pyramid_72 = 28816193
+generate_gaussian_pyramid_img_182_272_284 = 54815706
+find_keypoints_231_242 = 33142231
+generate_gradient_pyramid_269 = 43221197
+find_keypoint_orientations_328_338 = 29408666
+compute_keypoint_descriptor_436 = 29971754
+find_keypoints_and_descriptors_480_484_488 = 35930632
+find_keypoint_matches_514_519_531 = 30211664
